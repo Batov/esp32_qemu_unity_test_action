@@ -1,0 +1,14 @@
+name: "espressif idf build and QEMU run"
+description: "This action build your firmware directly in github using Espressif idf SDK abd run it at QEMU"
+branding:
+  color: blue
+  icon: check
+inputs:
+  path:
+    description: 'Relative path under $GITHUB_WORKSPACE to place the repository'
+    default: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.path }}
