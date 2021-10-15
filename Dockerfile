@@ -31,4 +31,7 @@ ENV PATH=/opt/qemu/bin:${PATH}
 
 RUN echo $($IDF_PATH/tools/idf_tools.py export) >> $HOME/.bashrc
 
-ENTRYPOINT [ "/opt/esp/entrypoint.sh" ]
+ADD entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT [ "/entrypoint.sh" ]
