@@ -8,7 +8,8 @@ RUN apt-get update \
   git \
   libglib2.0-0 \
   libnuma1 \
-  libpixman-1-0
+  libpixman-1-0 \
+  ruby
 
 RUN ./opt/esp/entrypoint.sh && pip install --no-cache-dir idf-component-manager
 
@@ -26,6 +27,14 @@ RUN wget --no-verbose ${QEMU_URL} \
   && echo "${QEMU_SHA256} *${QEMU_DIST}" | sha256sum --check --strict - \
   && tar -xf $QEMU_DIST -C /opt \
   && rm ${QEMU_DIST}
+
+ENV UNITY_REL=v2.5.2
+ENV UNITY_DIST=${UNITY_REL}.tar.gz
+ENV UNITY_URL=https://github.com/ThrowTheSwitch/Unity/archive/refs/tags/${UNITY_DIST}
+
+RUN wget --no-verbose ${UNITY_URL} \
+  && tar -xf ${UNITY_DIST} -C /opt \
+  && rm ${UNITY_DIST}
 
 ENV PATH=/opt/qemu/bin:${PATH}
 
