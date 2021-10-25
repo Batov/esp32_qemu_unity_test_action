@@ -1,10 +1,10 @@
 # Unittest action
-1. Setup your ESP32 firmware runs unit tests
-2. Action builds firmware
-3. Action runs firmware ar QEMU
-4. Action write QEMU log output to file
-5. Action convert Unity output to JUnit report.xml
-6. You can feed report.xml to another action to publish test resuls
+1. Setup your ESP32 firmware runs unit tests and `esp_restart()` (to stop QEMU);
+2. Action builds firmware;
+3. Action runs firmware ar QEMU;
+4. Action writes QEMU log output to file;
+5. Action converts Unity output to JUnit report.xml;
+6. You can feed report.xml to another action to publish test resuls;
 
 ## Example workflow with results publishing
 ```
