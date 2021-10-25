@@ -1,5 +1,5 @@
 name: "ESP32 unit tests runner"
-description: "This action build your firmware directly in github using Espressif IDF SDK, run it at QEMU, parse Unity output and returns JUnit report.xml"
+description: "Build your ESP32 firmware using IDF SDK, run it at QEMU, parse Unity output and returns JUnit report.xml"
 branding:
   color: orange
   icon: check-square
