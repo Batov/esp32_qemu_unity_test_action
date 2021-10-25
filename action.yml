@@ -1,8 +1,8 @@
-name: "espressif idf build and QEMU run"
-description: "This action build your firmware directly in github using Espressif idf SDK abd run it at QEMU"
+name: "ESP32 unit tests runner"
+description: "This action build your firmware directly in github using Espressif IDF SDK, run it at QEMU, parse Unity output and returns JUnit report.xml"
 branding:
-  color: blue
-  icon: check
+  color: orange
+  icon: check-square
 inputs:
   path:
     description: 'Relative path under $GITHUB_WORKSPACE to place the repository'
