@@ -1,3 +1,31 @@
 # Unittest action
+1. Setup your ESP32 firmware runs unit tests
+2. Action builds firmware
+3. Action runs firmware ar QEMU
+4. Action write QEMU log output to file
+5. Action convert Unity output to JUnit report.xml
+6. You can feed report.xml to another action to publish test resuls
 
-Github action to show unity test result for ESP32 project - https://github.com/Batov/esp32_unittest
+## Example workflow with results publishing
+```
+name: Test
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Build and show result
+        uses: batov/esp32_qemu_runner@master
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        if: always()
+        with:
+            files: report.xml
+```
+
+## Example project
+https://github.com/Batov/esp32_unittest
