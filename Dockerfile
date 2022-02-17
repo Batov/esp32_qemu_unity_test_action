@@ -1,4 +1,4 @@
-FROM espressif/idf:release-v4.3
+FROM espressif/idf:release-v4.4
 
 ARG DEBIAN_FRONTEND=nointeractive
 
@@ -21,7 +21,7 @@ ENV QEMU_URL=https://github.com/espressif/qemu/releases/download/${QEMU_REL}/${Q
 
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
-ENV IDF_PYTHON_ENV_PATH=/opt/esp/python_env/idf4.3_py3.6_env
+ENV IDF_PYTHON_ENV_PATH=/opt/esp/python_env/idf4.4_py3.8_env
 
 RUN wget --no-verbose ${QEMU_URL} \
   && echo "${QEMU_SHA256} *${QEMU_DIST}" | sha256sum --check --strict - \
