@@ -19,13 +19,16 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
       - name: Build and show result
-        uses: batov/esp32_qemu_runner@master
+        uses: batov/esp32_qemu_runner@v4.3
       - name: Publish Unit Test Results
         uses: EnricoMi/publish-unit-test-result-action@v1
         if: always()
         with:
             files: report.xml
 ```
+## Versions
+* `uses: batov/esp32_qemu_runner@v4.3` - It will use ESP-IDF v4.3
+* `uses: batov/esp32_qemu_runner@v4.4` - It will use ESP-IDF v4.4
 
 ## Example project
 https://github.com/Batov/esp32_unittest
